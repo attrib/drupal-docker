@@ -7,7 +7,16 @@ if [ ! -z "$1" ]; then
     CMD=$1
     shift
     echo "Running $CMD $@"
-    $CMD $@
+    if [[ "$CMD" == *"phpunit" ]]; then
+        /etc/init.d/apache2 start
+        mkdir /var/www/html/web/sites/simpletest
+        chown www-data:wwwadmin /var/www/html/web/sites/default/files
+        chown www-data:wwwadmin /var/www/html/web/sites/simpletest
+        chown www-data:wwwadmin /tmp/tests
+        sudo -Eu www-data $CMD $@
+    else
+        $CMD $@
+    fi
 else
     # make files accessible for www-data
     chown www-data:wwwadmin /var/www/html/web/sites/default/files

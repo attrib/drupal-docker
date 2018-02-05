@@ -12,7 +12,8 @@ apt-get install -yq --no-install-recommends \
     libicu-dev \
     libtidy-dev \
     mysql-client \
-    freetype*
+    freetype* \
+    sudo # needed for testing
 
 # PHP extensions
 pecl install redis

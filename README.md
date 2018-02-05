@@ -12,7 +12,7 @@ If you used drupal-composer/drupal-project remove pre and post-install-cmd in co
 
 `sudo ln -s `pwd`/drupal-docker.sh /usr/local/bin/drupal-docker`
 
-#### Local Development
+#### Local development
 
 Start all services with `drupal-docker dev start`
 
@@ -20,9 +20,13 @@ Use drush `drupal-docker dev cmd drush cr`
 
 Stop all services with `drupal-docker dev stop`
 
-#### Run all tests
+#### Run tests
 
-`drupal-docker test`
+Run tests: `drupal-docker test`
+
+Add to test for more output `--verbose --debug`
+
+Testing core: `drupal-docker test web/core -c web/core --group breadcrumb`
 
 ### Windows
 
